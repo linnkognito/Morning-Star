@@ -32,6 +32,7 @@ module.exports = {
     extend: {
       fontFamily: {
         bebas: ['"Bebas Neue"', "sans-serif"],
+        "material-symbols": ['"Material Symbols Outlined"', "sans-serif"],
       },
     },
   },
