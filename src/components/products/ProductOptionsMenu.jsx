@@ -4,10 +4,25 @@ import Button from "../ui/buttons/Button";
 const sizes = ["xs", "s", "m", "l", "xl", "xxl"];
 
 function ProductOptionsMenu() {
-  const [maxPrice, setMaxPrice] = useState(120);
+  const defaultPrice = 120;
+  const [maxPrice, setMaxPrice] = useState(defaultPrice);
+
+  const handleChange = (e) => {
+    const price = e.target.value;
+    if (!/^\d*$/.test(price)) return; // only allow numbers
+
+    if (+price < 0) return setMaxPrice(1);
+    setMaxPrice(+price);
+  };
+
+  const handleClick = (op) => {
+    const newPrice = op === "dec" ? +maxPrice - 1 : +maxPrice + 1;
+    if (newPrice <= 0) return setMaxPrice(1);
+    setMaxPrice(newPrice);
+  };
 
   return (
-    <div className="text-md grid h-full min-h-8 w-full cursor-pointer grid-cols-[6fr_1fr_2fr_1fr] bg-offblack text-center font-bebas text-lg font-medium uppercase tracking-widest text-pearl transition-all duration-200">
+    <div className="text-md grid h-full min-h-8 w-full cursor-pointer grid-cols-2 bg-offblack text-center font-bebas text-lg font-medium uppercase tracking-widest text-pearl transition-all duration-200">
       {/* Sizes */}
       <div className="flex justify-evenly">
         {sizes.map((size) => (
@@ -21,30 +36,34 @@ function ProductOptionsMenu() {
       </div>
 
       {/* Price or Quantity */}
-      <Button
-        type="inverted"
-        className="h-full w-full active:bg-aura active:text-offblack"
-        onClick={() => setMaxPrice(maxPrice - 5)}
-      >
-        <h2 className="text-3xl">-</h2>
-      </Button>
+      <div className="grid grid-cols-3 items-center justify-center">
+        <Button
+          type="inverted"
+          className="h-full w-full active:bg-aura active:text-offblack"
+          onClick={() => handleClick("dec")}
+        >
+          <h2 className="text-3xl">-</h2>
+        </Button>
 
-      <div className="flex min-h-full w-full items-center">
-        <span className="text-3xl">$</span>
-        <input
-          type="text"
-          className="h-full bg-offblack text-3xl text-pearl outline-none placeholder:text-pearl"
-          defaultValue={`${maxPrice}`}
-        />
+        <div className="flex w-full items-center justify-center gap-1 pl-2 pr-1">
+          <span className="text-3xl">$</span>
+          <input
+            type="text"
+            className="h-full w-full bg-offblack text-3xl text-pearl outline-none placeholder:text-pearl"
+            // defaultValue={maxPrice}
+            value={maxPrice}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+
+        <Button
+          type="inverted"
+          className="h-full w-full active:bg-aura active:text-offblack"
+          onClick={() => handleClick("inc")}
+        >
+          <h2 className="text-3xl">+</h2>
+        </Button>
       </div>
-
-      <Button
-        type="inverted"
-        className="h-full w-full active:bg-aura active:text-offblack"
-        onClick={() => setMaxPrice(maxPrice + 5)}
-      >
-        <h2 className="text-3xl">+</h2>
-      </Button>
 
       {/* Row 2: Color */}
       <div className="col-span-4 flex w-full">
