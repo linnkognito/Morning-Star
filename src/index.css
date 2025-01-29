@@ -11,3 +11,6 @@ body {
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";
 }
+@theme {
+  --spacing-app: "1324px";
+}

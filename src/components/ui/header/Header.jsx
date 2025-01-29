@@ -13,10 +13,12 @@ export default function Header() {
   };
 
   return (
-    <header className="text-pearl flex h-auto w-full items-center justify-between font-bebas leading-normal">
+    <header className="flex w-full max-w-[1324px] items-center font-bebas leading-normal text-pearl md:justify-between">
       <Nav activeItem={activeItem} onToggle={handleToggle} />
-
-      <h1 className="cursor-pointer text-5xl" onClick={() => navigate("/")}>
+      <h1
+        className="cursor-pointer text-[2.3rem] md:text-5xl"
+        onClick={() => navigate("/")}
+      >
         Morning Star
       </h1>
 

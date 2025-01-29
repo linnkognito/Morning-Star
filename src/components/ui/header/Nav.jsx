@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import NavItem from "./NavItem";
+import Icon from "../../common/Icon";
 
 const navItems = [
   { id: "nav-new", text: "Home", path: "/" },
@@ -13,7 +14,11 @@ function Nav({ onToggle, activeItem }) {
 
   return (
     <nav className="h-full cursor-pointer">
-      <ul className="md:text-1xl flex h-full items-center text-2xl">
+      <NavItem className="xl:hidden">
+        <Icon name="menu" />
+      </NavItem>
+
+      <ul className="xl:text-1xl hidden h-full items-center text-2xl xl:flex">
         {navItems.map((li) => (
           <NavItem
             key={li.id}

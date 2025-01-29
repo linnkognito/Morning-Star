@@ -4,6 +4,7 @@ import AppLayout from "./ui/AppLayout";
 import Cart from "./cart/Cart";
 import Home from "./home/Home";
 import Error from "./ui/Error";
+import Products from "./products/Products";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/cart",

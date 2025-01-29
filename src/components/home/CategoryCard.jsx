@@ -1,29 +1,44 @@
+import { useEffect, useState } from "react";
 import ArrowButton from "../ui/buttons/ArrowButton";
 
 function CategoryCard({
   color = "pearl",
-  title,
+  title = "",
   bgImage = "",
   border = "border-pearl",
   className = "",
+  hoverColor = "hover:bg-zest/60",
+  hoverClass = "",
+  onClick = () => {},
 }) {
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered((prev) => !prev);
+
   return (
     <div
-      className={`${color} ${border} my-2 h-full w-1/4 border-2 ${className}`}
+      className={`${color} ${border} h-full max-h-[800px] w-full border-2 md:my-2 md:w-1/4 ${className}`}
       style={{ backgroundImage: `url(${bgImage})` }}
+      onMouseEnter={toggleHover}
+      onMouseLeave={toggleHover}
     >
-      <span className="relative flex h-full min-w-full items-end justify-start">
-        {/* <div className="w-1/10 bg-pearl border-pearl border-5 absolute right-[-2px] h-full">
-          Test
-        </div> */}
-        <div className="absolute right-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <ArrowButton />
-        </div>
+      <div className="relative flex h-full min-w-full cursor-pointer items-end justify-start">
+        {hovered && (
+          <div
+            className="absolute end-0 flex h-full w-fit cursor-pointer items-center md:w-full md:justify-center"
+            onClick={onClick}
+          >
+            <div
+              className={`${hoverColor} ${hoverClass} flex h-full min-h-[15vh] w-full items-center justify-center py-6 md:h-fit`}
+            >
+              <ArrowButton />
+            </div>
+          </div>
+        )}
 
         <h2 className="ml-2 h-fit p-0 font-bebas text-[10vw] uppercase leading-none">
           {title}
         </h2>
-      </span>
+      </div>
     </div>
   );
 }

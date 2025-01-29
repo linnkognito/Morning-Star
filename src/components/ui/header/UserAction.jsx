@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import Searchbar from "./SearchBar";
 import Icon from "../../common/Icon";
+import NavItem from "./NavItem";
 
 const icons = [
   { id: "icon-person", name: "person", path: "/profile" },
@@ -15,17 +16,16 @@ function UserAction({ activeItem, onToggle }) {
     <div className="flex h-full cursor-pointer">
       <Searchbar />
 
-      <ul className="flex h-full items-center text-2xl">
+      <ul className="hidden h-full items-center text-2xl md:flex">
         {icons.map((icon) => (
-          <li
+          <NavItem
             key={icon.id}
-            id={icon.id}
-            className={`hover:bg-pearl group flex h-full items-center hover:text-offblack ${activeItem === icon.id ? "bg-pearl text-offblack" : "text-pearl"}`}
+            isActive={activeItem === icon.id}
             onToggle={() => onToggle(icon.id)}
             onClick={() => navigate(icon.path)}
           >
             <Icon name={icon.name} al={icon.name} />
-          </li>
+          </NavItem>
         ))}
       </ul>
     </div>
