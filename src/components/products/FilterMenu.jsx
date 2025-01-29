@@ -32,12 +32,12 @@ function FilterMenu() {
 
         {/* Sort dropdown */}
         {isOpen === "sort" && (
-          <div className="absolute w-full border-2 border-t-0 border-zest">
+          <div className="absolute w-full rounded border-2 border-t-0 border-zest bg-pearl/70 px-2 py-1">
             {dropdown.sort.map((item) => (
               <Button
                 key={item.id}
                 type="filter"
-                className="border-0 bg-offblack py-1 text-pearl active:bg-pearl"
+                className="mt-1 border-0 bg-offblack text-pearl active:bg-pearl"
               >
                 {item.text}
               </Button>
@@ -57,8 +57,8 @@ function FilterMenu() {
 
         {/* Filter dropdown */}
         {isOpen === "filter" && (
-          <div className="absolute w-full border-2 border-t-0 border-zest">
-            <ProductOptionsMenu showActionButtons={false} />
+          <div className="absolute w-full">
+            <ProductOptionsMenu handleClick={handleClick} />
           </div>
         )}
       </div>
