@@ -13,14 +13,16 @@ export default function Header() {
   };
 
   return (
-    <header className="flex w-full max-w-[1324px] items-center font-bebas leading-normal text-pearl md:justify-between">
-      <Nav activeItem={activeItem} onToggle={handleToggle} />
-      <h1
-        className="cursor-pointer text-[2.3rem] md:text-5xl"
-        onClick={() => navigate("/")}
-      >
-        Morning Star
-      </h1>
+    <header className="flex w-full max-w-[1324px] items-center justify-between font-bebas leading-normal text-pearl">
+      <div className="flex w-full items-center md:justify-between">
+        <Nav activeItem={activeItem} onToggle={handleToggle} />
+        <h1
+          className="cursor-pointer text-[2.3rem] md:text-5xl"
+          onClick={() => navigate("/")}
+        >
+          Morning Star
+        </h1>
+      </div>
 
       <UserAction activeItem={activeItem} onToggle={handleToggle} />
     </header>

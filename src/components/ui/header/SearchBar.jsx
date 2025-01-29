@@ -1,23 +1,19 @@
-import { useState } from "react";
-
 import Icon from "../../common/Icon";
-import NavItem from "./NavItem";
 
 function Searchbar() {
-  const [showSearchbar, setShowSearchbar] = useState(false);
-
   return (
-    <div className="hidden items-center gap-2 md:flex">
-      {showSearchbar && (
-        <input
-          type="text"
-          placeholder="Search..."
-          className="rounded-md bg-pearl p-1 text-offblack placeholder-grey-400 focus:ring-1 focus:ring-pearl md:w-64"
-        />
-      )}
-      <NavItem onClick={() => setShowSearchbar((prev) => !prev)}>
-        <Icon name="search" al="search" />
-      </NavItem>
+    <div className="relative flex w-full items-center justify-end px-2">
+      <input
+        type="text"
+        placeholder="Search..."
+        className="w-full rounded-md bg-pearl py-1 pl-2 pr-8 font-primary text-lg tracking-wide text-offblack placeholder-grey-400 focus:ring-1 focus:ring-pearl md:w-64"
+      />
+
+      <Icon
+        name="search"
+        al="search"
+        className="absolute right-3 bg-pearl text-offblack"
+      />
     </div>
   );
 }

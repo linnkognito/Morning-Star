@@ -13,7 +13,7 @@ function UserAction({ activeItem, onToggle }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-full cursor-pointer">
+    <div className="flex h-full w-full cursor-pointer">
       <Searchbar />
 
       <ul className="hidden h-full items-center text-2xl md:flex">

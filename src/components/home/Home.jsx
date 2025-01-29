@@ -5,7 +5,7 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="mx-auto flex size-full max-w-[1324px] flex-col gap-1 px-1 pb-4 md:flex-row">
+    <div className="mx-auto flex size-full flex-col gap-1 px-1 pb-4 md:flex-row">
       <CategoryCard
         color="bg-ember"
         // hoverColor="hover:bg-aura/60"

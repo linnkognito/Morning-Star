@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Button from "../ui/buttons/Button";
+import ProductOptionsMenu from "./ProductOptionsMenu";
+import FilterMenuButton from "./FilterMenuButton";
 
 const dropdown = {
   sort: [
@@ -12,23 +14,30 @@ const dropdown = {
 function FilterMenu() {
   const [isOpen, setIsOpen] = useState(null);
 
-  const handleClick = (e) => {
-    if (isOpen) return setIsOpen(null);
-    setIsOpen(e.target);
+  const handleClick = (button) => {
+    isOpen === button ? setIsOpen(null) : setIsOpen(button);
+    console.log(isOpen);
   };
 
   return (
     <div className="flex h-8 w-full max-w-[1284px] items-center justify-around gap-1">
+      {/* Sort button */}
       <div className="relative w-full">
-        <Button type="filter" onClick={(e) => handleClick(e)}>
+        <FilterMenuButton
+          isOpen={isOpen === "sort"}
+          onClick={() => handleClick("sort")}
+        >
           Sort
-        </Button>
-        {isOpen && (
-          <div className="absolute w-full border border-pearl bg-pearl">
+        </FilterMenuButton>
+
+        {/* Sort dropdown */}
+        {isOpen === "sort" && (
+          <div className="absolute w-full border-2 border-t-0 border-zest">
             {dropdown.sort.map((item) => (
               <Button
                 key={item.id}
-                className="border-t-none border-r-none border-l-none w-full border-b-[1px] border-zest"
+                type="filter"
+                className="border-0 bg-offblack py-1 text-pearl active:bg-pearl"
               >
                 {item.text}
               </Button>
@@ -37,10 +46,21 @@ function FilterMenu() {
         )}
       </div>
 
-      <div className="w-full">
-        <Button type="filter" onClick={handleClick}>
+      {/* Filter button */}
+      <div className="relative w-full">
+        <FilterMenuButton
+          isOpen={isOpen === "filter"}
+          onClick={() => handleClick("filter")}
+        >
           Filter
-        </Button>
+        </FilterMenuButton>
+
+        {/* Filter dropdown */}
+        {isOpen === "filter" && (
+          <div className="absolute w-full border-2 border-t-0 border-zest">
+            <ProductOptionsMenu />
+          </div>
+        )}
       </div>
     </div>
   );
