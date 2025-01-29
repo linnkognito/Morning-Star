@@ -58,7 +58,7 @@ function FilterMenu() {
         {/* Filter dropdown */}
         {isOpen === "filter" && (
           <div className="absolute w-full border-2 border-t-0 border-zest">
-            <ProductOptionsMenu />
+            <ProductOptionsMenu showActionButtons={false} />
           </div>
         )}
       </div>

@@ -22,13 +22,13 @@ function ProductOptionsMenu() {
   };
 
   return (
-    <div className="text-md grid h-full min-h-8 w-full cursor-pointer grid-cols-2 bg-offblack text-center font-bebas text-lg font-medium uppercase tracking-widest text-pearl transition-all duration-200">
+    <div className="text-md grid h-full w-full cursor-pointer grid-cols-1 gap-1 bg-zest p-2 pt-1 text-center font-bebas text-lg font-medium tracking-widest text-pearl transition-all duration-200 lg:grid-cols-2">
       {/* Sizes */}
-      <div className="flex justify-evenly">
+      <div className="flex items-center justify-evenly border border-offblack">
         {sizes.map((size) => (
           <button
             key={size}
-            className="w-full border border-y-0 first:border-l-0 last:border-r-0"
+            className="h-full w-full border bg-pearl uppercase text-offblack transition-colors duration-300 last:border-r-0 hover:bg-aura active:bg-zest"
           >
             {size}
           </button>
@@ -36,20 +36,22 @@ function ProductOptionsMenu() {
       </div>
 
       {/* Price or Quantity */}
-      <div className="grid grid-cols-3 items-center justify-center">
+
+      <div className="grid w-full grid-cols-3 items-center justify-center border-2 border-offblack">
         <Button
-          type="inverted"
-          className="h-full w-full active:bg-aura active:text-offblack"
+          type="operations"
+          className="border-r-2 border-transparent hover:border-offblack"
           onClick={() => handleClick("dec")}
         >
           <h2 className="text-3xl">-</h2>
         </Button>
 
-        <div className="flex w-full items-center justify-center gap-1 pl-2 pr-1">
+        {/* Price input */}
+        <div className="flex h-full w-full items-center justify-center gap-1 border-0 bg-pearl pl-2 pr-1 text-offblack">
           <span className="text-3xl">$</span>
           <input
             type="text"
-            className="h-full w-full bg-offblack text-3xl text-pearl outline-none placeholder:text-pearl"
+            className="h-full w-full bg-pearl text-3xl text-offblack outline-none placeholder:text-offblack"
             // defaultValue={maxPrice}
             value={maxPrice}
             onChange={(e) => handleChange(e)}
@@ -57,8 +59,8 @@ function ProductOptionsMenu() {
         </div>
 
         <Button
-          type="inverted"
-          className="h-full w-full active:bg-aura active:text-offblack"
+          type="operations"
+          className="border-l-2 border-transparent hover:border-offblack"
           onClick={() => handleClick("inc")}
         >
           <h2 className="text-3xl">+</h2>
@@ -66,18 +68,28 @@ function ProductOptionsMenu() {
       </div>
 
       {/* Row 2: Color */}
-      <div className="col-span-4 flex w-full">
+      <div className="flex w-full border-2 border-offblack lg:col-span-2">
         <div className="h-[52px] grow bg-ember"></div>
         <div className="h-[52px] grow bg-zest"></div>
         <div className="h-[52px] grow bg-aura"></div>
-        <div className="bg-black h-[52px] grow"></div>
+        <div className="h-[52px] grow bg-pearl"></div>
+        <div className="h-[52px] grow bg-offblack"></div>
       </div>
 
       {/* Row 3: Actions */}
-      <div className="col-span-4 flex gap-[1px] bg-pearl">
-        <button className="z-50 grow bg-offblack">Delete</button>
-        <button className="z-50 grow bg-offblack">Save</button>
-      </div>
+      {/* {showActionButtons && (
+        <div className="col-span-4 flex gap-[1px] bg-pearl">
+          <button className="z-50 grow bg-offblack">Delete</button>
+          <button className="z-50 grow bg-offblack">Save</button>
+        </div>
+      )}
+
+      {showAddToCartButton && (
+        <button className="z-50 flex grow items-center justify-center gap-1 bg-offblack text-2xl leading-10 text-pearl hover:bg-pearl hover:text-offblack">
+          <span>Add to cart</span>
+          <span className="text-4xl">+</span>
+        </button>
+      )} */}
     </div>
   );
 }
