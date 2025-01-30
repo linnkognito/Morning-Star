@@ -2,7 +2,9 @@ import ButtonTiny from "../buttons/ButtonTiny";
 
 function QuantitySelector({ text = "", className = "" }) {
   return (
-    <div className={`${className} flex items-center gap-2 font-bebas text-xl`}>
+    <div
+      className={`${className} flex place-content-center gap-2 font-bebas text-xl`}
+    >
       <p>{text}</p>
       <div className="flex gap-2">
         <ButtonTiny width="w-6" height="h-6">

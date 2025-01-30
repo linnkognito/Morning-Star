@@ -1,15 +1,23 @@
 import Icon from "../common/Icon";
 import cartImage from "../../images/HER_tanktop.jpg";
+import cartBgImage from "../../images/HER_buttonup_2.jpg";
 import QuantitySelector from "../ui/inputs/QuantitySelector";
 
 function Cart() {
   return (
-    <div className="grid h-full grid-cols-[2fr_1fr] p-4">
+    <div
+      className="grid h-full origin-center grid-cols-[2fr_1fr] bg-cover bg-center backdrop-blur-xl"
+      style={{ backgroundImage: `url(${cartBgImage})` }}
+    >
       {/* Product list */}
-      <div className="flex h-full flex-col rounded-md bg-pearl p-3">
+      <div className="flex h-full flex-col rounded-md bg-transparent p-3">
+        {/*  */}
+        {/*  */}
+        {/*  */}
         {/* List item (Card) */}
-        <div className="flex items-center gap-4 rounded-md shadow-sm shadow-offblack">
-          <div className="flex h-full max-h-[7em] min-h-[7em] min-w-[7em] max-w-[7em] justify-center rounded-l-md bg-aura">
+        <div className="grid grid-cols-[auto_3fr_3fr_auto] gap-3 rounded-md bg-pearl/50 pr-1 shadow-sm shadow-offblack backdrop-blur-sm">
+          {/* Image */}
+          <div className="flex h-full max-h-[7em] min-h-[7em] min-w-[7em] max-w-[7em] rounded-l-md bg-aura">
             <img
               src={cartImage}
               alt="Young woman wearing a white tanktop"
@@ -17,42 +25,38 @@ function Cart() {
             />
           </div>
 
-          {/* Text & Action button wrapper */}
-          <div className="flex h-full w-full justify-between gap-2">
-            {/* Text */}
-            <div className="flex h-full w-full flex-col justify-center bg-pearl font-bebas">
-              <h2 className="w-fit cursor-pointer text-3xl transition-all duration-200 ease-out hover:bg-zest/70 hover:underline">
-                Product name
-              </h2>
+          {/* Product Name */}
+          <div className="flex flex-col justify-center font-bebas">
+            <h2 className="w-fit cursor-pointer text-3xl transition-all duration-200 ease-out hover:bg-zest/70 hover:underline">
+              Product name
+            </h2>
 
-              <p className="pl-1 text-2xl">$295.00</p>
-            </div>
-
-            {/* Actions */}
-            <div className="flex h-full flex-col items-end gap-2 border border-offblack font-bebas">
-              <Icon
-                name="close"
-                al="Close button"
-                className="justify-sef-end"
-              />
-
-              <div className="flex w-[80%] flex-col gap-3">
-                {/* Size */}
-                <div className="mr-10 w-full rounded-xl bg-zest/80 p-2 text-xl">
-                  Size: M
-                </div>
-                <QuantitySelector
-                  text="Quantity"
-                  className="mr-10 w-full rounded-xl bg-zest/80 p-2"
-                />
-              </div>
-            </div>
+            {/* Product Price */}
+            <p className="pl-1 text-2xl">$295.00</p>
           </div>
+
+          {/* Actions */}
+          <div className="mr-4 flex h-full flex-col justify-center gap-2 font-bebas">
+            {/* Size */}
+            <div className="flex w-full place-content-center rounded-xl bg-aura/80 p-1 text-xl tracking-wide">
+              Size: M
+            </div>
+            <QuantitySelector
+              text="Quantity"
+              className="bg-mint/80 w-full rounded-xl p-1 tracking-wide"
+            />
+          </div>
+
+          <Icon
+            name="close"
+            al="Close button"
+            className="h-fit origin-center cursor-pointer rounded duration-100 ease-out will-change-transform hover:scale-105"
+          />
         </div>
       </div>
 
       {/* Sidebar: Checkout */}
-      <div className="m-4 rounded bg-pearl">Div 2</div>
+      <div className="m-2 rounded bg-pearl">Div 2</div>
     </div>
   );
 }
