@@ -8,15 +8,10 @@ function AppLayout() {
     <div className="flex h-screen w-screen flex-col items-center overflow-x-hidden bg-offblack">
       <Header />
 
-      <main className="relative h-full w-full bg-cream">
-        {/* <div
-          style={{ backgroundImage: `url(${bgImage})` }}
-          className="absolute inset-0 bg-cover bg-center"
-        ></div> */}
-
-        <div className="relative h-full w-full">
-          <Outlet />
-        </div>
+      <main className="bg-cream h-full w-full">
+        {/* <div className="relative h-full w-full"> */}
+        <Outlet />
+        {/* </div> */}
       </main>
     </div>
   );

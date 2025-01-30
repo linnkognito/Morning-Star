@@ -1,6 +1,6 @@
-import Button from "../ui/buttons/Button";
+import Button from "../../ui/buttons/Button";
 
-function FilterMenuButton({ children, isOpen, onClick = () => {} }) {
+function RefineMenuButton({ children, isOpen, onClick = () => {} }) {
   return (
     <Button
       type="filter"
@@ -14,4 +14,4 @@ function FilterMenuButton({ children, isOpen, onClick = () => {} }) {
   );
 }
 
-export default FilterMenuButton;
+export default RefineMenuButton;
