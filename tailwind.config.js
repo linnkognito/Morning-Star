@@ -19,6 +19,9 @@ module.exports = {
       zest: "#DCEB59",
       ember: "#F05A31",
       aura: "#D19BF3",
+      mint: "#B7FCBF",
+      moss: "#004638",
+      sea: "#C7DDDC",
       grey: {
         50: "#f6f6f6",
         100: "#e7e7e7",

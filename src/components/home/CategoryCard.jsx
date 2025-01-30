@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ArrowButton from "../ui/buttons/ArrowButton";
 
 function CategoryCard({
   color = "pearl",
   title = "",
   bgImage = "",
-  border = "border-pearl",
   className = "",
-  hoverColor = "hover:bg-zest/60",
+  hoverColor = "bg-zest/60",
   hoverClass = "",
   onClick = () => {},
 }) {
@@ -16,7 +15,7 @@ function CategoryCard({
 
   return (
     <div
-      className={`${color} ${border} h-full max-h-[800px] w-full border-2 md:my-2 md:w-1/4 ${className}`}
+      className={`${color} h-full max-h-[800px] w-full bg-cover bg-center md:my-2 md:w-1/4 ${className}`}
       style={{ backgroundImage: `url(${bgImage})` }}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
@@ -35,7 +34,7 @@ function CategoryCard({
           </div>
         )}
 
-        <h2 className="ml-2 h-fit p-0 font-bebas text-[10vw] uppercase leading-none">
+        <h2 className="ml-2 h-fit p-0 font-bebas text-[10vw] uppercase leading-none text-pearl/80">
           {title}
         </h2>
       </div>
