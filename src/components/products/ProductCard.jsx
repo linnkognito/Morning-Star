@@ -13,6 +13,11 @@ function ProductCard() {
 
   return (
     <div className="relative flex min-h-[200px] max-w-[250px] flex-col rounded bg-pearl">
+      <Icon
+        name="favorite"
+        className="border-red absolute right-0 pr-1 pt-0.5 text-aura"
+      />
+
       <div className="h-[280px]">IMG</div>
 
       {showMenu && (
@@ -28,6 +33,7 @@ function ProductCard() {
         </div>
       )}
 
+      {/* Product bar */}
       <div className="flex w-full items-center justify-between overflow-hidden rounded-b bg-aura pl-2">
         <div className="flex h-full flex-col pt-2">
           <h2 className="font-bebas text-2xl tracking-widest">Title</h2>
