@@ -34,7 +34,7 @@ function CategoryCard({
           </div>
         )}
 
-        <h2 className="ml-2 h-fit p-0 font-bebas text-[10vw] uppercase leading-none text-pearl/80">
+        <h2 className="text-shadow-sm ml-2 h-fit p-0 font-bebas text-[10vw] uppercase leading-none text-pearl">
           {title}
         </h2>
       </div>

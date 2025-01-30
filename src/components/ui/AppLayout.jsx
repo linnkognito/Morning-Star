@@ -11,9 +11,7 @@ function AppLayout() {
       <Header />
 
       <main className="bg-cream h-full w-full">
-        {/* <div className="relative h-full w-full"> */}
         <Outlet />
-        {/* </div> */}
       </main>
     </div>
   );

@@ -42,6 +42,9 @@ module.exports = {
         primary: ["Questrial", "sans-serif"],
         "material-symbols": ['"Material Symbols Outlined"', "sans-serif"],
       },
+      textShadow: {
+        sm: "0 1px 2px #0F0F0F",
+      },
     },
   },
   plugins: [],

@@ -2,8 +2,12 @@ import { useNavigate } from "react-router";
 import CategoryCard from "./CategoryCard";
 import imageHer from "../../images/HER_sunglasses.jpg";
 import imageHim from "../../images/HIM_blazer_rose.jpg";
-import imageUnisex from "../../images/HER_turtleneck.jpg";
+import imageUnisex from "../../images/UNI_turtleneck.jpg";
 import imageNew from "../../images/HIM_outfit_1.jpg";
+// import imageHer from "../../images/HER_escape.jpg";
+// import imageHim from "../../images/HIM_buckethat.jpg";
+// import imageUnisex from "../../images/UNI_monochrome.jpg";
+// import imageNew from "../../images/HER_bikini.jpg";
 
 function Home() {
   const navigate = useNavigate();
