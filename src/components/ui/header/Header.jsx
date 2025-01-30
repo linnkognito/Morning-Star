@@ -2,6 +2,7 @@ import { useState } from "react";
 import Nav from "./Nav";
 import UserAction from "./UserAction";
 import { useNavigate } from "react-router";
+import PromotionBar from "./PromotionBar";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Header() {
       <div className="flex w-full items-center md:justify-between">
         <Nav activeItem={activeItem} onToggle={handleToggle} />
         <h1
-          className="cursor-pointer text-[2.3rem] md:text-5xl"
+          className="cursor-pointer text-[2.3rem] hover:text-zest md:text-5xl"
           onClick={() => navigate("/")}
         >
           Morning Star
