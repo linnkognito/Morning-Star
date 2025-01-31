@@ -1,62 +1,101 @@
-import Icon from "../common/Icon";
-import cartImage from "../../images/HER_tanktop.jpg";
 import cartBgImage from "../../images/HER_buttonup_2.jpg";
-import QuantitySelector from "../ui/inputs/QuantitySelector";
+import cartImage from "../../images/HER_escape.jpg";
+import Icon from "../common/Icon";
+
+import ActionButton from "../ui/buttons/ActionButton";
+import CartItem from "./CartItem";
+
+const testCart = [
+  {
+    id: "01",
+    productName: "Test Product",
+    image: cartImage,
+    imageAlt: "Young woman wearing a white tanktop",
+    quantity: 1,
+    size: "M",
+  },
+  {
+    id: "01",
+    productName: "Test Product",
+    image: cartImage,
+    imageAlt: "Young woman wearing a white tanktop",
+    quantity: 1,
+    size: "M",
+  },
+  {
+    id: "01",
+    productName: "Test Product",
+    image: cartImage,
+    imageAlt: "Young woman wearing a white tanktop",
+    quantity: 1,
+    size: "M",
+  },
+];
 
 function Cart() {
+  const cart = testCart;
+
   return (
     <div
-      className="grid h-full origin-center grid-cols-[2fr_1fr] bg-cover bg-center backdrop-blur-xl"
+      className="mx-auto h-full origin-center bg-cover bg-center p-4 backdrop-blur-xl"
       style={{ backgroundImage: `url(${cartBgImage})` }}
     >
       {/* Product list */}
-      <div className="flex h-full flex-col rounded-md bg-transparent p-3">
-        {/*  */}
-        {/*  */}
-        {/*  */}
-        {/* List item (Card) */}
-        <div className="grid grid-cols-[auto_3fr_3fr_auto] gap-3 rounded-md bg-pearl/50 pr-1 shadow-sm shadow-offblack backdrop-blur-sm">
-          {/* Image */}
-          <div className="flex h-full max-h-[7em] min-h-[7em] min-w-[7em] max-w-[7em] rounded-l-md bg-aura">
-            <img
-              src={cartImage}
-              alt="Young woman wearing a white tanktop"
-              className="cursor-pointer rounded object-cover"
+      <div className="mx-auto mt-4 grid max-w-[1024px] grid-cols-1 gap-4 rounded-md bg-pearl/60 p-6 shadow-sm shadow-offblack backdrop-blur-md md:grid-cols-[2fr_1fr]">
+        <p className="w-full font-bebas text-xl tracking-wider md:col-span-2">
+          {cart.length} items
+        </p>
+        <div className="flex flex-col gap-3">
+          {cart.map((item) => (
+            <CartItem
+              key={item.id}
+              name={item.name}
+              image={item.image}
+              alt={item.imageAlt}
+              quantity={item.quantity}
+              size={item.size}
             />
-          </div>
+          ))}
+          <ActionButton color="bg-sea" width="w-full">
+            <Icon name="arrow_back" />
+            Continue shopping
+          </ActionButton>
+        </div>
 
-          {/* Product Name */}
-          <div className="flex flex-col justify-center font-bebas">
-            <h2 className="w-fit cursor-pointer text-3xl transition-all duration-200 ease-out hover:bg-zest/70 hover:underline">
-              Product name
-            </h2>
+        {/* Checkout */}
+        <div className="flex h-full flex-col gap-1">
+          {/* Small banner */}
+          {/* <div className="mb-2 h-7 rounded bg-aura shadow-sm shadow-offblack"></div> */}
 
-            {/* Product Price */}
-            <p className="pl-1 text-2xl">$295.00</p>
-          </div>
-
-          {/* Actions */}
-          <div className="mr-4 flex h-full flex-col justify-center gap-2 font-bebas">
-            {/* Size */}
-            <div className="flex w-full place-content-center rounded-xl bg-aura/80 p-1 text-xl tracking-wide">
-              Size: M
+          <div className="flex flex-col justify-between rounded bg-aura/15 p-4 shadow-sm shadow-offblack backdrop-blur-md">
+            {/* Promo code */}
+            <div className="flex h-fit w-full flex-col">
+              <label
+                htmlFor=""
+                className="h-8 pl-1 pt-1 font-bebas text-xl tracking-wide"
+              >
+                Promo code:
+              </label>
+              <input
+                type="text"
+                placeholder="123PROMO"
+                className="h-7 max-w-[400px] rounded-md px-2 font-primary text-base tracking-wide shadow-sm shadow-offblack"
+              />
             </div>
-            <QuantitySelector
-              text="Quantity"
-              className="bg-mint/80 w-full rounded-xl p-1 tracking-wide"
-            />
+
+            {/* Total */}
+            <h2 className="mt-4 pl-1 font-bebas text-4xl">Total: $120</h2>
           </div>
 
-          <Icon
-            name="close"
-            al="Close button"
-            className="h-fit origin-center cursor-pointer rounded duration-100 ease-out will-change-transform hover:scale-105"
-          />
+          <ActionButton
+            color="bg-aura/80"
+            width="w-full"
+            className="place-self-end"
+          >
+            Go to checkout
+          </ActionButton>
         </div>
       </div>
-
-      {/* Sidebar: Checkout */}
-      <div className="m-2 rounded bg-pearl">Div 2</div>
     </div>
   );
 }
