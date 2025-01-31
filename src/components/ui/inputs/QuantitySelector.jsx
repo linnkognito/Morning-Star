@@ -1,6 +1,6 @@
 import ButtonTiny from "../buttons/ButtonTiny";
 
-function QuantitySelector({ text = "", className = "" }) {
+function QuantitySelector({ text = "", className = "", quantity = 1 }) {
   return (
     <div
       className={`${className} text-md flex place-content-center gap-2 font-bebas md:text-xl`}
@@ -10,7 +10,7 @@ function QuantitySelector({ text = "", className = "" }) {
         <ButtonTiny width="w-6" height="h-6">
           -
         </ButtonTiny>
-        <span>1</span>
+        <span>{quantity}</span>
         <ButtonTiny width="w-6" height="h-6">
           +
         </ButtonTiny>

@@ -1,8 +1,9 @@
 import { useState } from "react";
+
 import Icon from "../common/Icon";
 import QuantitySelector from "../ui/inputs/QuantitySelector";
 
-function CartItem({ name, image, alt, quantity, size }) {
+function CartItem({ name, image, alt, quantity, size, price }) {
   const [deleteIsHovered, setDeleteIsHovered] = useState(false);
 
   return (
@@ -25,12 +26,12 @@ function CartItem({ name, image, alt, quantity, size }) {
       {/* Product Name */}
       <div className="flex flex-col justify-center font-bebas">
         <h2 className="w-fit cursor-pointer text-xl transition-all duration-200 ease-out hover:bg-zest/70 sm:text-2xl lg:text-3xl">
-          Product name
+          {name}
         </h2>
 
         {/* Product Price */}
         <p className="text-md pl-1 text-grey-600 sm:text-xl lg:text-2xl">
-          $295.00
+          ${price}
         </p>
       </div>
 
@@ -38,9 +39,10 @@ function CartItem({ name, image, alt, quantity, size }) {
       <div className="mr-4 flex h-full flex-col justify-center gap-2 font-bebas">
         {/* Size */}
         <div className="text-md flex w-full cursor-pointer place-content-center rounded-xl bg-zest/80 p-1 tracking-wide md:text-xl">
-          Size: M
+          Size: {size}
         </div>
         <QuantitySelector
+          quantity={quantity}
           text="Quantity:"
           className="bg-mint/80 w-full rounded-xl px-3 py-1 tracking-wide"
         />
