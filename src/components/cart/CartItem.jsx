@@ -2,9 +2,12 @@ import { useState } from "react";
 
 import Icon from "../common/Icon";
 import QuantitySelector from "../ui/inputs/QuantitySelector";
+import ColorSelector from "../ui/inputs/ColorSelector";
 
-function CartItem({ name, image, alt, quantity, size, price }) {
+function CartItem({ name, color, image, alt, quantity, size, price }) {
   const [deleteIsHovered, setDeleteIsHovered] = useState(false);
+
+  console.log(color);
 
   return (
     <div
@@ -36,11 +39,20 @@ function CartItem({ name, image, alt, quantity, size, price }) {
       </div>
 
       {/* Actions */}
-      <div className="mr-4 flex h-full flex-col justify-center gap-2 font-bebas">
-        {/* Size */}
-        <div className="text-md flex w-full cursor-pointer place-content-center rounded-xl bg-zest/80 p-1 tracking-wide md:text-xl">
-          Size: {size}
+      <div className="mr-4 flex h-full flex-col justify-center gap-1 py-2 font-bebas">
+        {/* Size & Color*/}
+        <div className="flex gap-2">
+          <div className="text-md flex w-full cursor-pointer place-content-center rounded-xl bg-zest/80 p-1 tracking-wide md:text-xl">
+            Size: {size}
+          </div>
+
+          <ColorSelector
+            colors={[color]}
+            // height="h-full"
+            className="rounded-xl"
+          />
         </div>
+
         <QuantitySelector
           quantity={quantity}
           text="Quantity:"

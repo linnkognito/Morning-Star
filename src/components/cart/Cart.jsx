@@ -6,6 +6,7 @@ import Icon from "../common/Icon";
 
 import ActionButton from "../ui/buttons/ActionButton";
 import CartItem from "./CartItem";
+import { useNavigate } from "react-router";
 
 const testCart = [
   {
@@ -41,6 +42,7 @@ const testCart = [
 ];
 
 function Cart() {
+  const navigate = useNavigate();
   const cart = testCart;
 
   return (
@@ -60,12 +62,17 @@ function Cart() {
               name={item.productName}
               image={item.image}
               alt={item.imageAlt}
-              quantity={item.quantity}
               size={item.size}
+              color={item.color}
+              quantity={item.quantity}
               price={item.price}
             />
           ))}
-          <ActionButton color="bg-sea" width="w-full">
+          <ActionButton
+            color="bg-sea"
+            width="w-full"
+            onClick={() => navigate(-1)}
+          >
             <Icon name="arrow_back" />
             Continue shopping
           </ActionButton>
