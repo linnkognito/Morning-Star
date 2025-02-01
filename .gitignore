@@ -3,11 +3,14 @@
 /.pnp
 .pnp.js
 
+# env variables
+.env
+*.env
+
 # testing
 /coverage
 
-#refernces
-/references
+/src/images
 
 # production
 /build
@@ -23,4 +26,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/images

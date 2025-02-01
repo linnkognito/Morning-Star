@@ -1,4 +1,3 @@
-import Icon from "../common/Icon";
 import ArrowButton from "../ui/buttons/ArrowButton";
 
 function New() {

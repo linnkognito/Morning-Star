@@ -2,7 +2,6 @@ import { useState } from "react";
 import Nav from "./Nav";
 import UserAction from "./UserAction";
 import { useNavigate } from "react-router";
-import PromotionBar from "./PromotionBar";
 
 export default function Header() {
   const navigate = useNavigate();
